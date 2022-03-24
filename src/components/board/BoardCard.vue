@@ -1,6 +1,7 @@
 <template>
-    <div class="card">
-        <img alt="Vue logo" src="../../assets/logo.png">
+    <div @click="flipCard" class="card">
+        <p v-if="card.flipped">{{ card.back }}</p>
+        <img v-else alt="Vue logo" src="../../assets/logo.png">
     </div>
 </template>
 
@@ -9,9 +10,18 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'BoardCard',
+  props: {
+    card: Object
+  },
+  emits: ['flip-card'],
   data () {
     return {
       name: 'Name'
+    }
+  },
+  methods: {
+    flipCard () {
+      this.$emit('flip-card', this.card.id)
     }
   }
 })

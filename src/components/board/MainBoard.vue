@@ -1,12 +1,13 @@
 <template>
     <div class="board" >
-        <BoardCard v-for="card in cards" :key="card"/>
+        <BoardCard @flip-card="flipCard" v-for="(card, index) in cards" :key="index" :card="card" />
     </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 import BoardCard from './BoardCard.vue'
+import { cards } from '../../assets/mocked'
 
 export default defineComponent({
   name: 'MainBoard',
@@ -15,7 +16,15 @@ export default defineComponent({
   },
   data () {
     return {
-      cards: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+      cards: cards
+    }
+  },
+  methods: {
+    flipCard (cardId: string) {
+      const card = this.cards.find(card => card.id === cardId)
+      if (card) {
+        card.flipped = !card.flipped
+      }
     }
   }
 })
