@@ -1,7 +1,11 @@
 <template>
-    <div @click="flipCard" class="card">
-        <p v-if="card.flipped">{{ card.back }}</p>
-        <img v-else alt="Vue logo" src="../../assets/logo.png">
+    <div class="card" @click="flipCard" :class="{ flip: card.flipped }">
+      <div class="card__face">
+        <p>{{ card.back }}</p>
+      </div>
+      <div class="card__face card__face--back">
+        <img alt="Vue logo" src="../../assets/logo.png">
+      </div>
     </div>
 </template>
 
@@ -14,11 +18,6 @@ export default defineComponent({
     card: Object
   },
   emits: ['flip-card'],
-  data () {
-    return {
-      name: 'Name'
-    }
-  },
   methods: {
     flipCard () {
       this.$emit('flip-card', this.card.id)
@@ -38,5 +37,20 @@ export default defineComponent({
       display: flex;
       align-items: center;
       justify-content: center;
+
+      transition: transform 0.5s;
+      transform-style: preserve-3d;
+  }
+
+  .card__face {
+    backface-visibility: hidden;
+  }
+
+  .card__face--back {
+    transform: rotateY(180deg);
+  }
+
+  .flip {
+    transform: rotateY(180deg);
   }
 </style>
