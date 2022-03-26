@@ -38,7 +38,7 @@ export default defineComponent({
 
        display: grid;
         grid-gap: 15px;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         align-items: center;
         justify-items: center;
     }

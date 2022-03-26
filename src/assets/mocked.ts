@@ -52,5 +52,47 @@ export const cards = [
     front: 'Front',
     back: 'Back',
     flipped: false
+  },
+  {
+    id: '10',
+    front: 'Front',
+    back: 'Back',
+    flipped: false
+  },
+  {
+    id: '11',
+    front: 'Front',
+    back: 'Back',
+    flipped: false
+  },
+  {
+    id: '12',
+    front: 'Front',
+    back: 'Back',
+    flipped: false
+  },
+  {
+    id: '13',
+    front: 'Front',
+    back: 'Back',
+    flipped: false
+  },
+  {
+    id: '14',
+    front: 'Front',
+    back: 'Back',
+    flipped: false
+  },
+  {
+    id: '15',
+    front: 'Front',
+    back: 'Back',
+    flipped: false
+  },
+  {
+    id: '16',
+    front: 'Front',
+    back: 'Back',
+    flipped: false
   }
 ]
