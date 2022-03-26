@@ -32,14 +32,11 @@ export default defineComponent({
 
 <style scoped lang="scss">
     .board {
-        border: 1px solid var(--primary-border-color);
-        border-radius: 0.5rem;
         width: 100%;
 
        display: grid;
         grid-gap: 15px;
         grid-template-columns: repeat(4, 1fr);
-        align-items: center;
-        justify-items: center;
+        height: max-content;
     }
 </style>

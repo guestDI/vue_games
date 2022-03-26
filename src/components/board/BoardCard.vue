@@ -30,8 +30,8 @@ export default defineComponent({
 
 <style scoped lang="scss">
   .scene {
-    width: 220px;
-  height: 220px;
+    width: 210px;
+  height: 210px;
   }
 
   .card {
@@ -46,8 +46,8 @@ export default defineComponent({
       transform-style: preserve-3d;
 
       img {
-        width: 180px;
-      height: 180px;
+        width: 170px;
+      height: 170px;
       object-fit: cover;
       }
   }
