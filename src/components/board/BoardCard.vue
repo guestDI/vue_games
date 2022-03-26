@@ -2,10 +2,10 @@
   <div class="scene">
     <div class="card" @click="flipCard" :class="{ flip: card.flipped }">
       <div class="card__face">
-        <img alt="Vue logo" src="../../assets/frozen/frozen1.png">
+        <img alt="Frozen front" :src="frontImage()">
       </div>
       <div class="card__face card__face--back">
-        <img alt="Vue logo" src="../../assets/logo.png">
+        <img alt="Frozen logo" :src="backImage()">
       </div>
     </div>
   </div>
@@ -23,6 +23,13 @@ export default defineComponent({
   methods: {
     flipCard () {
       this.$emit('flip-card', this.card.id)
+    },
+    frontImage () {
+      return require(`../../assets/${this.card.front}.png`)
+    },
+
+    backImage () {
+      return require(`../../assets/${this.card.back}.png`)
     }
   }
 })
@@ -31,7 +38,7 @@ export default defineComponent({
 <style scoped lang="scss">
   .scene {
     width: 210px;
-  height: 210px;
+    height: 210px;
   }
 
   .card {
@@ -44,6 +51,7 @@ export default defineComponent({
       position: relative;
       transition: transform 0.5s;
       transform-style: preserve-3d;
+      background: var(--background-card-color);
 
       img {
         width: 170px;
@@ -54,12 +62,12 @@ export default defineComponent({
 
   .card__face {
     position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .card__face--back {

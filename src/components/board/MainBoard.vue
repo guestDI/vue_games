@@ -7,7 +7,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import BoardCard from './BoardCard.vue'
-import { cards } from '../../assets/mocked'
+import { createBoard } from '@/helpers'
 
 export default defineComponent({
   name: 'MainBoard',
@@ -16,11 +16,11 @@ export default defineComponent({
   },
   data () {
     return {
-      cards: cards
+      cards: createBoard(16, 'frozen')
     }
   },
   methods: {
-    flipCard (cardId: string) {
+    flipCard (cardId: number) {
       const card = this.cards.find(card => card.id === cardId)
       if (card) {
         card.flipped = !card.flipped
