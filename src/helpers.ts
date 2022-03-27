@@ -24,3 +24,11 @@ export const createBoard = (numberOfCards: number, gameTheme: GameTheme) => {
 
   return cards.sort(() => 0.5 - Math.random())
 }
+
+export const isMatch = (flippedCards: Card[]) => {
+  if (flippedCards.length) {
+    return flippedCards[0].back === flippedCards[1].back
+  }
+
+  return false
+}
