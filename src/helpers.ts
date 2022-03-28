@@ -1,7 +1,11 @@
 import { Card, GameTheme } from './types'
 import { v4 as uuidv4 } from 'uuid'
 
-export const createBoard = (numberOfCards: number, gameTheme: GameTheme) => {
+export const createBoard = (numberOfCards: number, gameTheme: GameTheme): Array<Card> | [] => {
+  if (!gameTheme) {
+    return []
+  }
+
   const cards: Card[] = []
   let imageSuffix = 1
 

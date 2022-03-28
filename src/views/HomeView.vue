@@ -1,10 +1,15 @@
 <template>
 <div class="layout">
-  <div class="counter">
-    Counter
+  <div class="left-side">
+    <div >
+      <GameThemeSelector @select-game="selectGame"/>
+    </div>
+    <div class="counter">
+      <ScoreCounter/>
+    </div>
   </div>
   <div class="board">
-    <MainBoard/>
+      <MainBoard :initialCards="initialCards"/>
   </div>
 </div>
 </template>
@@ -12,11 +17,27 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import MainBoard from '@/components/board/MainBoard.vue' // @ is an alias to /src
+import ScoreCounter from '@/components/ScoreCounter.vue'
+import GameThemeSelector from '@/components/GameThemeSelector.vue'
+import { createBoard } from '@/helpers'
+import { Card } from '@/types'
 
 export default defineComponent({
   name: 'HomeView',
+  data () {
+    return {
+      initialCards: new Array<Card>()
+    }
+  },
   components: {
-    MainBoard
+    MainBoard,
+    ScoreCounter,
+    GameThemeSelector
+  },
+  methods: {
+    selectGame (e) {
+      this.initialCards = createBoard(16, e.currentTarget.id)
+    }
   }
 })
 </script>
@@ -25,8 +46,15 @@ export default defineComponent({
   .layout {
     display: flex;
 
-    .counter {
-      width: 20%;
+    .left-side {
+      display: flex;
+      flex-direction: column;
+      width: 30%;
+      // text-align: left;
+
+      .counter {
+        margin-top: 40px;
+      }
     }
 
     .board {

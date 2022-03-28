@@ -5,4 +5,4 @@ export interface Card {
     flipped: boolean
 }
 
-export type GameTheme = 'frozen' | 'tangled'
+export type GameTheme = 'frozen' | 'tangled' | 'aladdin'

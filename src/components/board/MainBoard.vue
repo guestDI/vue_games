@@ -7,7 +7,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import BoardCard from './BoardCard.vue'
-import { createBoard, isMatch } from '@/helpers'
+import { isMatch } from '@/helpers'
 import { Card } from '@/types'
 
 export default defineComponent({
@@ -15,10 +15,16 @@ export default defineComponent({
   components: {
     BoardCard
   },
+  props: ['initialCards'],
   data () {
     return {
-      cards: createBoard(16, 'frozen'),
+      cards: [...this.initialCards],
       flippedCards: new Array<Card>()
+    }
+  },
+  watch: {
+    initialCards: function () {
+      this.cards = [...this.initialCards]
     }
   },
   methods: {

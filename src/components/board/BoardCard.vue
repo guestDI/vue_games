@@ -56,7 +56,7 @@ export default defineComponent({
       img {
         width: 170px;
       height: 170px;
-      object-fit: cover;
+      object-fit: contain;
       }
   }
 
