@@ -5,11 +5,11 @@
       <GameThemeSelector @select-game="selectGame"/>
     </div>
     <div class="counter">
-      <ScoreCounter/>
+      <ScoreCounter :steps="steps"/>
     </div>
   </div>
   <div class="board">
-      <MainBoard :initialCards="initialCards"/>
+      <MainBoard @count-step="countStep" :initialCards="initialCards"/>
   </div>
 </div>
 </template>
@@ -26,7 +26,8 @@ export default defineComponent({
   name: 'HomeView',
   data () {
     return {
-      initialCards: new Array<Card>()
+      initialCards: new Array<Card>(),
+      steps: 0
     }
   },
   components: {
@@ -37,6 +38,9 @@ export default defineComponent({
   methods: {
     selectGame (e) {
       this.initialCards = createBoard(16, e.currentTarget.id)
+    },
+    countStep () {
+      this.steps++
     }
   }
 })

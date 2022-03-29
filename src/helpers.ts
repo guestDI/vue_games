@@ -31,7 +31,7 @@ export const createBoard = (numberOfCards: number, gameTheme: GameTheme): Array<
 
 export const isMatch = (flippedCards: Card[]) => {
   if (flippedCards.length) {
-    return flippedCards[0].back === flippedCards[1].back
+    return flippedCards[0]?.back === flippedCards[1]?.back
   }
 
   return false

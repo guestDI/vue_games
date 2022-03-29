@@ -16,6 +16,7 @@ export default defineComponent({
     BoardCard
   },
   props: ['initialCards'],
+  emits: ['count-step'],
   data () {
     return {
       cards: [...this.initialCards],
@@ -44,6 +45,8 @@ export default defineComponent({
 
           this.flippedCards = []
         }, 1000)
+
+        this.$emit('count-step')
       }
     }
   }
