@@ -37,8 +37,8 @@ export default defineComponent({
 
 <style scoped lang="scss">
   .scene {
-    width: 210px;
-    height: 210px;
+    width: 200px;
+    height: 200px;
   }
 
   .card {
@@ -54,8 +54,8 @@ export default defineComponent({
       background: var(--background-card-color);
 
       img {
-        width: 170px;
-      height: 170px;
+        width: 165px;
+      height: 165px;
       object-fit: contain;
       }
   }

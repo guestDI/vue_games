@@ -19,7 +19,7 @@ export default defineComponent({
   emits: ['count-step'],
   data () {
     return {
-      cards: [...this.initialCards],
+      cards: new Array<Card>(),
       flippedCards: new Array<Card>()
     }
   },

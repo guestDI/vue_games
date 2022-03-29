@@ -38,6 +38,7 @@ export default defineComponent({
   methods: {
     selectGame (e) {
       this.initialCards = createBoard(16, e.currentTarget.id)
+      this.steps = 0
     },
     countStep () {
       this.steps++

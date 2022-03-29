@@ -38,7 +38,6 @@ export default defineComponent({
       width: 100px;
       height: 100px;
       box-shadow: 0 0px 2px rgb(0 0 0 / 7%), 0 5px 6px rgb(0 0 0 / 16%);
-      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
