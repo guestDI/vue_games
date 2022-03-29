@@ -26,6 +26,7 @@ export default defineComponent({
   watch: {
     initialCards: function () {
       this.cards = [...this.initialCards]
+      this.flippedCards = []
     }
   },
   methods: {
