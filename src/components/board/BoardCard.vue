@@ -1,6 +1,6 @@
 <template>
   <div class="scene">
-    <div class="card" @click="flipCard" :class="{ flip: card.flipped }">
+    <div class="card" @click="flipCard" :class="{ flip: card.flipped }" >
       <div class="card__face">
         <img alt="Frozen front" :src="frontImage()">
       </div>
@@ -17,7 +17,8 @@ import { defineComponent } from 'vue'
 export default defineComponent({
   name: 'BoardCard',
   props: {
-    card: Object
+    card: Object,
+    gameTheme: String
   },
   emits: ['flip-card'],
   methods: {
@@ -32,13 +33,42 @@ export default defineComponent({
       return require(`../../assets/${this.card.back}.png`)
     }
   }
+  // computed: {
+  //   color () {
+  //     if (this.gameTheme === 'frozen') {
+  //       return {
+  //         styleObject: {
+  //           backGround: '#8894b3'
+  //         }
+  //       }
+  //     } else if (this.gameTheme === 'aladdin') {
+  //       return {
+  //         styleObject: {
+  //           backGround: '#3144af'
+  //         }
+  //       }
+  //     } else if (this.gameTheme === 'tangled') {
+  //       return {
+  //         styleObject: {
+  //           backGround: 'rgb(255, 149, 167)'
+  //         }
+  //       }
+  //     } else {
+  //       return {
+  //         styleObject: {
+  //           backGround: '#8894b3'
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 })
 </script>
 
 <style scoped lang="scss">
   .scene {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
   }
 
   .card {
@@ -54,8 +84,8 @@ export default defineComponent({
       background: var(--background-card-color);
 
       img {
-        width: 165px;
-      height: 165px;
+        width: 150px;
+      height: 150px;
       object-fit: contain;
       }
   }

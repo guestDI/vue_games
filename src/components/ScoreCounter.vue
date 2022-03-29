@@ -35,8 +35,8 @@ export default defineComponent({
     .counter-card {
       border: 0.5px solid var(--light-border-color);
       border-radius: 0.5rem;
-      width: 100px;
-      height: 100px;
+      width: 80px;
+      height: 80px;
       box-shadow: 0 0px 2px rgb(0 0 0 / 7%), 0 5px 6px rgb(0 0 0 / 16%);
       display: flex;
       align-items: center;

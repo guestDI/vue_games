@@ -9,7 +9,7 @@
     </div>
   </div>
   <div class="board">
-      <MainBoard @count-step="countStep" :initialCards="initialCards"/>
+      <MainBoard @count-step="countStep" :initialCards="initialCards" :gameTheme="gameTheme"/>
   </div>
 </div>
 </template>
@@ -27,7 +27,8 @@ export default defineComponent({
   data () {
     return {
       initialCards: new Array<Card>(),
-      steps: 0
+      steps: 0,
+      gameTheme: String
     }
   },
   components: {
@@ -39,6 +40,7 @@ export default defineComponent({
     selectGame (e) {
       this.initialCards = createBoard(16, e.currentTarget.id)
       this.steps = 0
+      this.gameTheme = e.currentTarget.id
     },
     countStep () {
       this.steps++
@@ -55,7 +57,6 @@ export default defineComponent({
       display: flex;
       flex-direction: column;
       width: 30%;
-      // text-align: left;
 
       .counter {
         margin-top: 40px;
@@ -65,6 +66,24 @@ export default defineComponent({
     .board {
         padding: 0 10px;
         height: 80vh;
+    }
+  }
+
+  @media screen and (min-width: 600px) and (max-width: 900px) {
+    .layout {
+      flex-direction: column;
+      padding: 10px;
+
+      .left-side {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+        margin-bottom: 10px;
+
+        .counter {
+          margin-top: 0;
+        }
+      }
     }
   }
 </style>

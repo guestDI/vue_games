@@ -1,6 +1,6 @@
 <template>
     <div class="board" >
-        <BoardCard @flip-card="flipCard" v-for="(card, index) in cards" :key="index" :card="card" />
+        <BoardCard @flip-card="flipCard" v-for="(card, index) in cards" :key="index" :card="card" :gameTheme="gameTheme"/>
     </div>
 </template>
 
@@ -15,7 +15,7 @@ export default defineComponent({
   components: {
     BoardCard
   },
-  props: ['initialCards'],
+  props: ['initialCards', 'gameTheme'],
   emits: ['count-step'],
   data () {
     return {

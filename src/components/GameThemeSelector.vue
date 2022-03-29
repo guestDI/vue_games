@@ -43,8 +43,8 @@ export default defineComponent({
     .card {
       border: 0.5px solid var(--light-border-color);
       border-radius: 0.5rem;
-      width: 120px;
-      height: 120px;
+      width: 90px;
+      height: 90px;
       box-shadow: 0 0px 2px rgb(0 0 0 / 7%), 0 5px 6px rgb(0 0 0 / 16%);
       cursor: pointer;
       display: flex;
@@ -62,8 +62,8 @@ export default defineComponent({
       }
 
       img {
-        width: 100px;
-        height: 100px;
+        width: 65px;
+        height: 65px;
         object-fit: cover;
       }
     }
