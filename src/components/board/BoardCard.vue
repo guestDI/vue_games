@@ -1,6 +1,6 @@
 <template>
   <div class="scene">
-    <div class="card" @click="flipCard" :class="{ flip: card.flipped }" >
+    <div class="card" @click="flipCard" :class="{ flip: card.flipped }" :style="cssVars" >
       <div class="card__face">
         <img alt="Frozen front" :src="frontImage()">
       </div>
@@ -32,36 +32,28 @@ export default defineComponent({
     backImage () {
       return require(`../../assets/${this.card.back}.png`)
     }
+  },
+  computed: {
+    cssVars () {
+      if (this.gameTheme === 'frozen') {
+        return {
+          '--button-bg-color': '#8894b3'
+        }
+      } else if (this.gameTheme === 'aladdin') {
+        return {
+          '--button-bg-color': '#3144af'
+        }
+      } else if (this.gameTheme === 'tangled') {
+        return {
+          '--button-bg-color': 'rgb(255, 149, 167)'
+        }
+      } else {
+        return {
+          '--button-bg-color': '#8894b3'
+        }
+      }
+    }
   }
-  // computed: {
-  //   color () {
-  //     if (this.gameTheme === 'frozen') {
-  //       return {
-  //         styleObject: {
-  //           backGround: '#8894b3'
-  //         }
-  //       }
-  //     } else if (this.gameTheme === 'aladdin') {
-  //       return {
-  //         styleObject: {
-  //           backGround: '#3144af'
-  //         }
-  //       }
-  //     } else if (this.gameTheme === 'tangled') {
-  //       return {
-  //         styleObject: {
-  //           backGround: 'rgb(255, 149, 167)'
-  //         }
-  //       }
-  //     } else {
-  //       return {
-  //         styleObject: {
-  //           backGround: '#8894b3'
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
 })
 </script>
 
@@ -81,7 +73,7 @@ export default defineComponent({
       position: relative;
       transition: transform 0.5s;
       transform-style: preserve-3d;
-      background: var(--background-card-color);
+      background-color: var(--button-bg-color);
 
       img {
         width: 150px;

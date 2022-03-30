@@ -5,7 +5,6 @@
   </h3>
   <div class="counter">
     <div class="counter-card">{{this.steps}}</div>
-    <div class="counter-card">Card</div>
   </div>
 </div>
 </template>
