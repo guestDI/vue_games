@@ -73,7 +73,6 @@ export default defineComponent({
       position: relative;
       transition: transform 0.5s;
       transform-style: preserve-3d;
-      animation-fill-mode: forwards;
 
       img {
         width: 150px;
@@ -87,6 +86,7 @@ export default defineComponent({
     background-color: var(--button-bg-color);
     width: 100%;
     height: 100%;
+    border-radius: 0.5rem;
     backface-visibility: hidden;
     display: flex;
     align-items: center;
