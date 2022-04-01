@@ -73,7 +73,7 @@ export default defineComponent({
       position: relative;
       transition: transform 0.5s;
       transform-style: preserve-3d;
-      background-color: var(--button-bg-color);
+      animation-fill-mode: forwards;
 
       img {
         width: 150px;
@@ -84,6 +84,7 @@ export default defineComponent({
 
   .card__face {
     position: absolute;
+    background-color: var(--button-bg-color);
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
@@ -98,5 +99,6 @@ export default defineComponent({
 
   .flip {
     transform: rotateY(180deg);
+        // background: transparent;
   }
 </style>
