@@ -31,23 +31,25 @@ export default defineComponent({
   },
   methods: {
     flipCard (cardId: number) {
-      const card = this.cards.find(card => card.id === cardId)
-      if (card && !card.flipped && this.flippedCards.length < 2) {
-        card.flipped = true
-        this.flippedCards.push(card)
-      }
+      if (this.flippedCards.length < 2) {
+        const card = this.cards.find(card => card.id === cardId)
+        if (card && !card.flipped && this.flippedCards.length < 2) {
+          card.flipped = true
+          this.flippedCards.push(card)
+        }
 
-      if (this.flippedCards.length === 2) {
-        setTimeout(() => {
-          if (this.flippedCards.length && !isMatch(this.flippedCards)) {
-            this.flippedCards[0].flipped = false
-            this.flippedCards[1].flipped = false
-          }
+        if (this.flippedCards.length === 2) {
+          setTimeout(() => {
+            if (this.flippedCards.length && !isMatch(this.flippedCards)) {
+              this.flippedCards[0].flipped = false
+              this.flippedCards[1].flipped = false
+            }
 
-          this.flippedCards = []
-        }, 1000)
+            this.flippedCards = []
+          }, 1000)
 
-        this.$emit('count-step')
+          this.$emit('count-step')
+        }
       }
     }
   }

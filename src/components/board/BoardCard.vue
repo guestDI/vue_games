@@ -73,14 +73,11 @@ export default defineComponent({
       position: relative;
       transition: transform 0.5s;
       transform-style: preserve-3d;
-      background-color: var(--button-bg-color);
-          border-radius: 0.5rem;
 
       img {
         width: 150px;
       height: 150px;
       object-fit: contain;
-      transform: rotateY(180deg);
       }
   }
 
@@ -92,6 +89,12 @@ export default defineComponent({
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: var(--button-bg-color);
+    border-radius: 0.5rem;
+  }
+
+  .card__face--front {
+    transform: rotateY(0deg);
   }
 
   .card__face--back {
@@ -100,6 +103,5 @@ export default defineComponent({
 
   .flip {
     transform: rotateY(180deg);
-    // background: transparent;
   }
 </style>
