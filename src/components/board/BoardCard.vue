@@ -47,6 +47,10 @@ export default defineComponent({
         return {
           '--button-bg-color': 'rgb(255, 149, 167)'
         }
+      } else if (this.gameTheme === 'brave') {
+        return {
+          '--button-bg-color': '#6c927a'
+        }
       } else {
         return {
           '--button-bg-color': '#8894b3'

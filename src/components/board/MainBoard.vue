@@ -51,7 +51,7 @@ export default defineComponent({
             }
 
             this.flippedCards = []
-          }, 1000)
+          }, 900)
 
           this.$emit('count-step')
         }
