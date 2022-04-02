@@ -6,7 +6,6 @@
     </div>
     <div class="counter">
       <ScoreCounter :steps="steps"/>
-      <button @click="openModal">Click</button>
     </div>
   </div>
   <div class="board">
@@ -63,7 +62,9 @@ export default defineComponent({
       this.showModal = true
     },
     gameOver () {
-      this.showModal = true
+      setTimeout(() => {
+        this.showModal = true
+      }, 500)
     }
   }
 })

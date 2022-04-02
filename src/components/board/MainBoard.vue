@@ -25,7 +25,8 @@ export default defineComponent({
   data () {
     return {
       cards: new Array<Card>(),
-      flippedCards: new Array<Card>()
+      flippedCards: new Array<Card>(),
+      matchedCards: new Array<Card>()
     }
   },
   watch: {
@@ -44,17 +45,24 @@ export default defineComponent({
         }
 
         if (this.flippedCards.length === 2) {
-          setTimeout(() => {
-            if (this.flippedCards.length && !isMatch(this.flippedCards)) {
+          if (isMatch(this.flippedCards)) {
+            this.matchedCards.push(...this.flippedCards)
+            this.flippedCards = []
+          } else {
+            setTimeout(() => {
               this.flippedCards[0].flipped = false
               this.flippedCards[1].flipped = false
-            }
 
-            this.flippedCards = []
-          }, 900)
+              this.flippedCards = []
+            }, 900)
+          }
 
           this.$emit('count-step')
         }
+      }
+
+      if (this.matchedCards.length === this.cards.length) {
+        this.$emit('game-over')
       }
     }
   }
