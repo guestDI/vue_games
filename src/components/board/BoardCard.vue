@@ -76,7 +76,7 @@ export default defineComponent({
       border-radius: 0.5rem;
       width: 100%;
       height: 100%;
-      box-shadow: 0 0px 2px rgb(0 0 0 / 7%), 0 5px 6px rgb(0 0 0 / 16%);
+      box-shadow: var(--default-box-shadow);
       cursor: pointer;
       position: relative;
       transition: transform 0.5s;

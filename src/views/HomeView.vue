@@ -6,19 +6,28 @@
     </div>
     <div class="counter">
       <ScoreCounter :steps="steps"/>
+      <button @click="openModal">Click</button>
     </div>
   </div>
   <div class="board">
-      <MainBoard @count-step="countStep" :initialCards="initialCards" :gameTheme="gameTheme"/>
+      <MainBoard @count-step="countStep" :initialCards="initialCards" :gameTheme="gameTheme" @game-over="gameOver"/>
   </div>
+    <Modal :open="showModal" :close="closeModal">
+      <div class="content-wrapper">
+        <span>{{ steps }}</span>
+          <button class="btn" @click="closeModal">
+            Закрыть
+          </button>
+      </div>
+    </Modal>
 </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 import MainBoard from '@/components/board/MainBoard.vue' // @ is an alias to /src
-import ScoreCounter from '@/components/ScoreCounter.vue'
 import GameThemeSelector from '@/components/GameThemeSelector.vue'
+import { ScoreCounter, Modal } from '@/components'
 import { createBoard } from '@/helpers'
 import { Card } from '@/types'
 
@@ -28,13 +37,15 @@ export default defineComponent({
     return {
       initialCards: new Array<Card>(),
       steps: 0,
-      gameTheme: String
+      gameTheme: String,
+      showModal: false
     }
   },
   components: {
     MainBoard,
     ScoreCounter,
-    GameThemeSelector
+    GameThemeSelector,
+    Modal
   },
   methods: {
     selectGame (e) {
@@ -44,6 +55,15 @@ export default defineComponent({
     },
     countStep () {
       this.steps++
+    },
+    closeModal () {
+      this.showModal = false
+    },
+    openModal () {
+      this.showModal = true
+    },
+    gameOver () {
+      this.showModal = true
     }
   }
 })
@@ -66,6 +86,23 @@ export default defineComponent({
     .board {
         padding: 20px 10px 0;
         height: 80vh;
+    }
+
+    .content-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      height: 100%;
+    }
+
+    .btn {
+      border: 1px solid var(--background-card-color4);
+      border-radius: 5px;
+      padding: 10px;
+      max-width: 75px;
+      box-shadow: var(--default-box-shadow);
+      cursor: pointer;
     }
   }
 

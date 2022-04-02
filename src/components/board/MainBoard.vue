@@ -21,7 +21,7 @@ export default defineComponent({
     BoardCard
   },
   props: ['initialCards', 'gameTheme'],
-  emits: ['count-step'],
+  emits: ['count-step', 'game-over'],
   data () {
     return {
       cards: new Array<Card>(),
