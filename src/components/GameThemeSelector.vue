@@ -13,6 +13,9 @@
       <div @click="selectGame" class="card" id="tangled">
           <img src="../assets/tangled/tangled1.png" alt="Tangled">
       </div>
+      <div @click="selectGame" class="card" id="mermaid">
+          <img src="../assets/mermaid/mermaid1.png" alt="Mermaid">
+      </div>
     </div>
 </template>
 
@@ -63,8 +66,11 @@ export default defineComponent({
       &:nth-of-type(3) {
         background: var(--background-card-color2);;
       }
-      &:last-of-type {
+      &:nth-of-type(4) {
         background: var(--background-card-color3);
+      }
+      &:last-of-type {
+        background: var(--background-card-color4);
       }
 
       img {

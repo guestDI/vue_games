@@ -51,6 +51,10 @@ export default defineComponent({
         return {
           '--button-bg-color': '#6c927a'
         }
+      } else if (this.gameTheme === 'mermaid') {
+        return {
+          '--button-bg-color': '#4fa9dd'
+        }
       } else {
         return {
           '--button-bg-color': '#8894b3'
