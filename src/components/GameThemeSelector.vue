@@ -1,6 +1,9 @@
 <template>
     <h3 >Game</h3>
     <div class="cards-container">
+      <div @click="selectGame" class="card" id="brave">
+          <img src="../assets/brave/brave1.png" alt="Brave">
+      </div>
       <div @click="selectGame" class="card" id="frozen">
           <img src="../assets/frozen/frozen1.png" alt="Frozen">
       </div>
@@ -55,6 +58,9 @@ export default defineComponent({
         background: var(--background-card-color);
       }
       &:nth-of-type(2) {
+        background: var(--background-card-color1);;
+      }
+      &:nth-of-type(3) {
         background: var(--background-card-color2);;
       }
       &:last-of-type {
