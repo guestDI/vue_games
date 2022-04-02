@@ -1,6 +1,11 @@
 <template>
     <div class="board" >
-        <BoardCard @flip-card="flipCard" v-for="(card, index) in cards" :key="index" :card="card" :gameTheme="gameTheme"/>
+        <BoardCard
+          @flip-card="flipCard"
+          v-for="(card, index) in cards"
+          :key="index" :card="card"
+          :gameTheme="gameTheme"
+        />
     </div>
 </template>
 
@@ -63,5 +68,6 @@ export default defineComponent({
         grid-gap: 15px;
         grid-template-columns: repeat(4, 1fr);
         height: max-content;
+        align-content: baseline;
     }
 </style>

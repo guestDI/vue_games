@@ -64,7 +64,7 @@ export default defineComponent({
     }
 
     .board {
-        padding: 0 10px;
+        padding: 20px 10px 0;
         height: 80vh;
     }
   }
