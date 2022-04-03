@@ -5,7 +5,6 @@
           v-for="(card, index) in cards"
           :key="index" :card="card"
           :gameTheme="gameTheme"
-          :finallyMatched="checkIfCardMatched(card.id)"
         />
     </div>
 </template>
@@ -27,8 +26,7 @@ export default defineComponent({
     return {
       cards: new Array<Card>(),
       flippedCards: new Array<Card>(),
-      matchedCards: new Array<Card>(),
-      isCardMatched: false
+      matchedCards: new Array<Card>()
     }
   },
   watch: {
@@ -72,13 +70,6 @@ export default defineComponent({
           this.$emit('count-step')
         }
       }
-    },
-    checkIfCardMatched (id) {
-      // setTimeout(() => {
-      //   this.isCardMatched = !!this.matchedCards.find((card) => card.id === id)
-      // }, 300)
-
-      return !!this.matchedCards.find((card) => card.id === id)
     }
   }
 })
