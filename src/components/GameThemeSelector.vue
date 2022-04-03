@@ -72,7 +72,7 @@ export default defineComponent({
       &:nth-of-type(4) {
         background: var(--background-card-color3);
       }
-      &:nth-of-type(4) {
+      &:nth-of-type(5) {
         background: var(--background-card-color4);
       }
       &:last-of-type {

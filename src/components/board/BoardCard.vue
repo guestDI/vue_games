@@ -111,6 +111,7 @@ export default defineComponent({
 
   .card__face--back {
     transform: rotateY(180deg);
+    background: rgba(143, 56, 56, 0.575);
   }
 
   .flip {
