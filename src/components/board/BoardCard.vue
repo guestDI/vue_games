@@ -1,6 +1,6 @@
 <template>
   <div class="scene" >
-    <div class="card" @click="flipCard" :class="{ flip: card.flipped }" :style="cssVars" >
+    <div class="card" @click="flipCard" :class="{ flip: card.flipped }" :style="[cssVars, cardFaceBackground]" >
       <div class="card__face">
         <img alt="Frozen front" :src="frontImage()">
       </div>
@@ -64,6 +64,37 @@ export default defineComponent({
           '--button-bg-color': '#8894b3'
         }
       }
+    },
+    cardFaceBackground () {
+      if (this.gameTheme === 'frozen') {
+        return {
+          '--card-face-color': 'rgba(136, 148, 179, 0.6)'
+        }
+      } else if (this.gameTheme === 'aladdin') {
+        return {
+          '--card-face-color': 'rgba(49, 68, 175, 0.7)'
+        }
+      } else if (this.gameTheme === 'tangled') {
+        return {
+          '--card-face-color': 'rgb(255, 149, 167, 0.5)'
+        }
+      } else if (this.gameTheme === 'brave') {
+        return {
+          '--card-face-color': 'rgba(108, 146, 122, 0.6)'
+        }
+      } else if (this.gameTheme === 'mermaid') {
+        return {
+          '--card-face-color': 'rgba(79, 169, 221, 0.6)'
+        }
+      } else if (this.gameTheme === 'fruits') {
+        return {
+          '--card-face-color': 'rgba(145, 103, 155, 0.6)'
+        }
+      } else {
+        return {
+          '--card-face-color': '#8894b3'
+        }
+      }
     }
   }
 })
@@ -111,7 +142,7 @@ export default defineComponent({
 
   .card__face--back {
     transform: rotateY(180deg);
-    background: rgba(143, 56, 56, 0.575);
+    background: var(--card-face-color);
   }
 
   .flip {
