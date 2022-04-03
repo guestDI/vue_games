@@ -1,5 +1,5 @@
 <template>
-  <div class="scene">
+  <div :class="['scene', {'matched': finallyMatched}]" >
     <div class="card" @click="flipCard" :class="{ flip: card.flipped }" :style="cssVars" >
       <div class="card__face">
         <img alt="Frozen front" :src="frontImage()">
@@ -18,7 +18,8 @@ export default defineComponent({
   name: 'BoardCard',
   props: {
     card: Object,
-    gameTheme: String
+    gameTheme: String,
+    finallyMatched: Boolean
   },
   emits: ['flip-card'],
   methods: {
@@ -111,5 +112,9 @@ export default defineComponent({
 
   .flip {
     transform: rotateY(180deg);
+  }
+
+  .matched {
+    filter: grayscale(70%);
   }
 </style>
