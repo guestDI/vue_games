@@ -2,7 +2,7 @@
 <div class="layout">
   <div class="left-side">
     <div >
-      <GameThemeSelector @select-game="selectGame"/>
+      <GameThemeSelector :games="games"/>
     </div>
     <div class="counter">
       <ScoreCounter :steps="steps"/>
@@ -28,8 +28,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import MainBoard from '@/components/board/MainBoard.vue' // @ is an alias to /src
-import GameThemeSelector from '@/components/GameThemeSelector.vue'
-import { ScoreCounter, Modal } from '@/components'
+import { ScoreCounter, Modal, GameThemeSelector } from '@/components'
 import { createBoard } from '@/helpers'
 import { Card } from '@/types'
 
@@ -37,6 +36,7 @@ export default defineComponent({
   name: 'HomeView',
   data () {
     return {
+      games: ['brave', 'frozen', 'aladdin', 'tangled', 'mermaid', 'fruits'],
       initialCards: new Array<Card>(),
       steps: 0,
       gameTheme: String,
@@ -48,6 +48,11 @@ export default defineComponent({
     ScoreCounter,
     GameThemeSelector,
     Modal
+  },
+  provide () {
+    return {
+      startGame: this.selectGame
+    }
   },
   methods: {
     selectGame (e) {

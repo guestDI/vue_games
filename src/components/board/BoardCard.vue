@@ -33,6 +33,7 @@ export default defineComponent({
       return require(`../../assets/${this.card.back}.png`)
     }
   },
+  // TODO: make more generic function to calculate colors
   computed: {
     cssVars () {
       if (this.gameTheme === 'frozen') {

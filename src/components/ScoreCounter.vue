@@ -29,13 +29,13 @@ export default defineComponent({
     justify-content: center;
     color: var(--primary-border-color);
     font-weight: 700;
-    font-size: 30px;
+    font-size: 3.3rem;
 
     .counter-card {
       border: 0.5px solid var(--light-border-color);
       border-radius: 0.5rem;
-      width: 75px;
-      height: 75px;
+      width: 90px;
+      height: 90px;
       box-shadow: 0 0px 2px rgb(0 0 0 / 7%), 0 5px 6px rgb(0 0 0 / 16%);
       display: flex;
       align-items: center;
