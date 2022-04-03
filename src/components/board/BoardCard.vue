@@ -55,6 +55,10 @@ export default defineComponent({
         return {
           '--button-bg-color': '#4fa9dd'
         }
+      } else if (this.gameTheme === 'fruits') {
+        return {
+          '--button-bg-color': '#91679b'
+        }
       } else {
         return {
           '--button-bg-color': '#8894b3'
