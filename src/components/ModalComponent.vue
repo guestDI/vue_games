@@ -45,14 +45,14 @@ export default defineComponent({
     padding: 16px;
     background: var(--secondary-font-color);
     border-radius: 10px;
-    min-width: 350px;
-    height: 300px;
+    min-width: 400px;
+    height: 350px;
     border: 1px solid var(--primary-border-color);
     box-shadow: var(--default-box-shadow);
     position: absolute;
     top: 50%;
     left: 50%;
-    margin: -250px -150px;
+    margin: -250px -200px;
   }
 
   .modal-enter-active {

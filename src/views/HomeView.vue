@@ -13,10 +13,13 @@
   </div>
     <Modal :open="showModal" :close="closeModal">
       <div class="content-wrapper">
+        <img alt="Game image" :src="gameImage()">
+        <div>Вы выиграли! Ваш результат </div>
         <span>{{ steps }}</span>
-          <button class="btn" @click="closeModal">
-            Закрыть
-          </button>
+        <div>шагов </div>
+        <button class="btn" @click="closeModal">
+          Закрыть
+        </button>
       </div>
     </Modal>
 </div>
@@ -65,6 +68,9 @@ export default defineComponent({
       setTimeout(() => {
         this.showModal = true
       }, 300)
+    },
+    gameImage () {
+      return require(`../assets/${this.gameTheme}/${this.gameTheme}1.png`)
     }
   }
 })
@@ -95,15 +101,24 @@ export default defineComponent({
       justify-content: space-around;
       align-items: center;
       height: 100%;
-    }
 
-    .btn {
-      border: 1px solid var(--background-card-color4);
-      border-radius: 5px;
-      padding: 10px;
-      max-width: 75px;
-      box-shadow: var(--default-box-shadow);
-      cursor: pointer;
+      img {
+        width: 150px;
+      }
+
+      span {
+        font-weight: 800;
+        font-size: 3rem;
+      }
+
+      .btn {
+        border: 1px solid var(--background-card-color4);
+        border-radius: 5px;
+        padding: 10px;
+        max-width: 75px;
+        box-shadow: var(--default-box-shadow);
+        cursor: pointer;
+      }
     }
   }
 
