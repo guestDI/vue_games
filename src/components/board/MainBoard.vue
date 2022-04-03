@@ -33,6 +33,16 @@ export default defineComponent({
     initialCards: function () {
       this.cards = [...this.initialCards]
       this.flippedCards = []
+      this.matchedCards = []
+    },
+    matchedCards: {
+      deep: true,
+
+      handler () {
+        if (this.matchedCards.length === this.cards.length) {
+          this.$emit('game-over')
+        }
+      }
     }
   },
   methods: {
@@ -59,10 +69,6 @@ export default defineComponent({
 
           this.$emit('count-step')
         }
-      }
-
-      if (this.matchedCards.length === this.cards.length) {
-        this.$emit('game-over')
       }
     }
   }

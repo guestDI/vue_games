@@ -64,7 +64,7 @@ export default defineComponent({
     gameOver () {
       setTimeout(() => {
         this.showModal = true
-      }, 500)
+      }, 300)
     }
   }
 })
